@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+const API = "https://hunarhub-1-5uh9.onrender.com";
+
 
 export default function EntrepreneursOrders({ goBack }) {
   const [orders, setOrders] = useState([]);
@@ -9,7 +11,7 @@ export default function EntrepreneursOrders({ goBack }) {
     const token = localStorage.getItem("token");
 
     axios
-      .get("http://localhost:5000/api/orders", {
+    .get(`${API}/api/orders`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,7 +31,8 @@ export default function EntrepreneursOrders({ goBack }) {
 
     try {
       await axios.put(
-        `http://localhost:5000/api/orders/${id}/status`,
+        `${API}/api/orders/${id}/status`,
+         
         { status },
         {
           headers: {
@@ -61,8 +64,7 @@ export default function EntrepreneursOrders({ goBack }) {
           {orders.map((item) => (
             <div key={item._id} style={card}>
               
-              <img src={item.image} style={imageStyle} />
-
+            <img src={item.image} style={imageStyle} alt={item.productName} />
               <h3>{item.productName}</h3>
               <p>₹ {item.price}</p>
 
