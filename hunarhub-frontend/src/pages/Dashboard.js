@@ -38,7 +38,7 @@ export default function Dashboard({ setIsLoggedIn }) {
 
   const fetchStats = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/dashboard/stats");
+      const res = await fetch('${process.env.REACT_APP_API_URL}/api/dashboard/stats');
       const data = await res.json();
       setStats(data);
     } catch (error) {

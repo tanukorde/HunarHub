@@ -32,7 +32,7 @@ if (!token || !entrepreneurId) {
 
   try {
     await axios.post(
-  "http://localhost:5000/api/products",
+  '${process.env.REACT_APP_API_URL}/api/products',
   {
     name: formData.name,
     price: Number(formData.price),

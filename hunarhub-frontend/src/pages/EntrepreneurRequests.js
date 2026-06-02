@@ -15,7 +15,7 @@ export default function EntrepreneurRequests({ goBack }) {
     }
 
     axios
-      .get("http://localhost:5000/api/orders", {
+      .get('${process.env.REACT_APP_API_URL}/api/orders', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

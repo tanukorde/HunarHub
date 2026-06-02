@@ -16,32 +16,32 @@ export default function Admin({ goBack }) {
   }, []);
 
   const fetchUsers = async () => {
-    const res = await fetch("http://localhost:5000/api/admin/users");
+    const res = await fetch('${process.env.REACT_APP_API_URL}/api/admin/users');
     const data = await res.json();
     setUsers(data);
   };
 
   const fetchProducts = async () => {
-    const res = await fetch("http://localhost:5000/api/admin/products");
+    const res = await fetch('${process.env.REACT_APP_API_URL}/api/admin/products');
     const data = await res.json();
     setProducts(data);
   };
 
   const fetchRequests = async () => {
-    const res = await fetch("http://localhost:5000/api/admin/entrepreneur-requests");
+    const res = await fetch('${process.env.REACT_APP_API_URL}/api/admin/entrepreneur-requests');
     const data = await res.json();
     setRequests(data);
   };
 
   const fetchOrders = async () => {
-    const res = await fetch("http://localhost:5000/api/admin/orders");
+    const res = await fetch('${process.env.REACT_APP_API_URL}/api/admin/orders');
     const data = await res.json();
     setOrders(data);
   };
 
   // APPROVE ENTREPRENEUR
   const approveUser = async (id) => {
-    await fetch(`http://localhost:5000/api/admin/approve/${id}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/api/admin/approve/${id}`, {
       method: "PUT",
     });
     fetchRequests();
@@ -49,7 +49,7 @@ export default function Admin({ goBack }) {
 
   // DELETE PRODUCT
   const deleteProduct = async (id) => {
-    await fetch(`http://localhost:5000/api/admin/product/${id}`, {
+    await fetch(`${process.env.REACT_APP_API_URL}/api/admin/product/${id}`, {
       method: "DELETE",
     });
     fetchProducts();
