@@ -10,7 +10,7 @@ export default function Login({ onLogin }) {
 
   try {
     const res = await axios.post(
-      "http://localhost:5000/api/auth/login",
+      '${process.env.REACT_APP_API_URI}/api/auth/login',
       {
         email,
         password,
