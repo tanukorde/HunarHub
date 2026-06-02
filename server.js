@@ -1,7 +1,7 @@
 const crypto = require('crypto');
 global.crypto =crypto;
 
-const crypto = require('crypto');
+
 if(!globalThis.crypto) globalThis.crypto = crypto;
 
 console.log("🔥 SERVER FILE RUNNING");
