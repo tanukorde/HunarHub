@@ -1,5 +1,6 @@
-const crypto = require ('crypto');
-global.crypto = crypto;
+const crypto = require('node: crypto');
+if(!globalThis.crypto) globalThis.crypto = crypto;
+
 console.log("🔥 SERVER FILE RUNNING");
 
 const express = require("express");
